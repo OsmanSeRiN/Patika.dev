@@ -10,7 +10,7 @@ const TodoItem = ({ todo }) => {
   };
 
   const Delete = () =>{
-    if(window.confirm("Emin misiniz?")){
+    if(window.confirm("Are you sure?")){
       dispatch(destroy({id: todo.id}))
     }
   }
