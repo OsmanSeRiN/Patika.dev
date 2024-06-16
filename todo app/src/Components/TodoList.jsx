@@ -1,10 +1,20 @@
-import React, { useMemo } from 'react';
+import React, { useEffect } from 'react';
 import TodoItem from './TodoItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTodosAsync } from '../Redux/Todos/dataset';
+import LoadingPage from './Loading/LoadingPage';
+
 
 const TodoList = () => {
     const items = useSelector(state => state.todos.items);
-    const activeFilter = useSelector(state => state.todos.activeFilter); // Filtre parametresi doğru şekilde alınmalı
+    const activeFilter = useSelector(state => state.todos.activeFilter);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getTodosAsync())
+    },[dispatch])
+
+    const busy = useSelector((state) => state.todos.busy)
 
     console.log("Active Filter " + activeFilter)
 
@@ -21,11 +31,16 @@ const TodoList = () => {
     console.log("Filter:", filterItems);
 
     return (
-        <ul className="todo-list">
+        <>
+          {
+            busy ? <LoadingPage/> :
+            <ul className="todo-list">
             {filterItems.map((todo) => (
                 <TodoItem key={todo.id} todo={todo} />
             ))}
         </ul>
+          }
+        </>
     );
 };
 

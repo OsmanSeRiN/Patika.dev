@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../Redux/Todos/dataset';
-import { nanoid } from '@reduxjs/toolkit';
+
 
 const TodoInput = () => {
   const [value, setValue] = useState('');
@@ -10,7 +10,6 @@ const TodoInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const ID = nanoid(5)
 
     dispatch(addItem(
       {

@@ -7,13 +7,16 @@ import TodoFilter from './TodoFilter';
 const TodoApp = () => {
 
   return (
-    <div className="todo-app">
-      <TodoHeader/>
-      <TodoInput/>
-      <TodoList/>
-      <TodoFilter/>
-    </div>
+    <>
+       <div className="todo-app">
+          <TodoHeader />
+          <TodoInput />
+          <TodoList />
+          <TodoFilter />
+        </div>
+    </>
   );
+
 };
 
 export default TodoApp;

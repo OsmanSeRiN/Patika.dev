@@ -16,27 +16,27 @@ let todos = [
   {
     id: nanoid(),
     title: 'todo 1',
-    completed: true,
+    isSelected: true,
   },
   {
     id: nanoid(),
     title: 'todo 2',
-    completed: false,
+    isSelected: false,
   },
   {
     id: nanoid(),
     title: 'todo 3',
-    completed: false,
+    isSelected: false,
   },
   {
     id: nanoid(),
     title: 'todo 4',
-    completed: false,
+    isSelected: false,
   },
   {
     id: nanoid(),
     title: 'todo 5',
-    completed: false,
+    isSelected: false,
   },
 ];
 
