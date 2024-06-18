@@ -16,6 +16,13 @@ const TodoList = () => {
 
     const busy = useSelector((state) => state.todos.busy)
 
+    const err = useSelector((state) => state.todos.error)
+
+
+    if(busy && err !== null){
+      alert(err)
+    };
+
     console.log("Active Filter " + activeFilter)
 
     let filterItems =[]
@@ -26,9 +33,6 @@ const TodoList = () => {
     }else {
       filterItems = items
     }
-
-    console.log("Items:", items);
-    console.log("Filter:", filterItems);
 
     return (
         <>

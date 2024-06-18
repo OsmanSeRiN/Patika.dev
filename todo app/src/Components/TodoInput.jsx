@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../Redux/Todos/dataset';
+import { addTodoAsync } from '../Redux/Todos/dataset';
 
 
 const TodoInput = () => {
@@ -8,10 +8,9 @@ const TodoInput = () => {
 
   const dispatch = useDispatch()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    dispatch(addItem(
+    await dispatch(addTodoAsync(
       {
         title:value,
       }

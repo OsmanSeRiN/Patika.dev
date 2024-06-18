@@ -1,19 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggle,destroy} from '../Redux/Todos/dataset';
+import {  removeTodoAsync, toggleTodoAsync } from '../Redux/Todos/dataset';
 
 const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();
 
-  const onTodo = () => {
-    dispatch(toggle({ id: todo.id }));
+  const handleToggle = async () => {
+    await dispatch(toggleTodoAsync({ id: todo.id, data: { isSelected: !todo.isSelected } }));
+    console.log("ID: " +  todo.id +  "Data: " +  !todo.isSelected )
   };
 
-  const Delete = () =>{
-    if(window.confirm("Are you sure?")){
-      dispatch(destroy({id: todo.id}))
+  const Delete = async() => {
+    if (window.confirm("Are you sure?")) {
+     await dispatch(removeTodoAsync({ id: todo.id }));
     }
-  }
+  };
 
   return (
     <li
@@ -27,7 +28,7 @@ const TodoItem = ({ todo }) => {
         textDecoration: todo.isSelected ? 'line-through' : 'none',
         color: todo.isSelected ? '#d9d9d9' : 'inherit'
       }}
-      onClick={onTodo}
+      onChange={handleToggle}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <input

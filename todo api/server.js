@@ -43,7 +43,7 @@ let todos = [
 app.get('/todos', (req, res) => res.send(todos));
 
 app.post('/todos', (req, res) => {
-  const todo = { title: req.body.title, id: nanoid(), completed: false };
+  const todo = { title: req.body.title, id: nanoid(), isSelected: false };
   todos.push(todo);
   return res.send(todo);
 });
@@ -51,9 +51,9 @@ app.post('/todos', (req, res) => {
 app.patch('/todos/:id', (req, res) => {
   const id = req.params.id;
   const index = todos.findIndex((todo) => todo.id == id);
-  const completed = Boolean(req.body.completed);
+  const isSelected = Boolean(req.body.isSelected);
   if (index > -1) {
-    todos[index].completed = completed;
+    todos[index].isSelected = isSelected;
   }
   return res.send(todos[index]);
 });
