@@ -128,3 +128,7 @@ TodoList.jsx
       filterItems = items
     }
 ```
+
+## Note! All these data operations are done in the backend
+
+![folders image](./todo%20app/Image/image.png)
