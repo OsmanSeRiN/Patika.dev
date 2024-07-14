@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Form from '../Components/Form/Form'
 import { MdFormatListBulletedAdd } from 'react-icons/md';
 import { TiThList } from 'react-icons/ti';
-import List from '../Components/List/List';
+import Lists from '../Components/List/List';
 
 
 const MainPage = () => {
@@ -36,7 +36,7 @@ const MainPage = () => {
         :
         <Box width="40vw" height="70vh" padding={10} borderRadius={25} boxShadow={"xl"} marginTop={"15vh"} bgColor="white">
            <Center><h1 style={{fontSize:"3vh",fontWeight:"600",}}>NOTE LİST</h1></Center>
-           <List/>
+           <Lists/>
         </Box>}
       </Center>
     </>
